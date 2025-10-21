@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Monthly wildfire incidents for 2018 and 2019 — line chart with Year as color",
+  "width": 800,
+  "height": 400,
+  "data": { "url": "Data Source\\2018_2019_Monthly_Wildfire_Counts__combined_.csv" },
+  "transform": [
+    {
+      "calculate": "datetime(datum.Year, datum.Month - 1, 1)",
+      "as": "date"
+    }
+  ],
+  "mark": { "type": "line", "point": true, "interpolate": "monotone" },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Month",
+      "axis": { "format": "%b %Y", "tickCount": 8, "labelAngle": -45 }
+    },
+    "y": { "field": "incidents", "type": "quantitative", "title": "Incidents" },
+    "tooltip": [
+      { "field": "Year", "type": "nominal" },
+      { "field": "MonthName", "type": "nominal", "title": "Month" },
+      { "field": "incidents", "type": "quantitative", "title": "Incidents" }
+    ]
+  }
+}

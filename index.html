@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Bushfires in Australia</title>
+  </head>
+  <body>
+    
+    <div class="container">
+      <!-- Title -->
+      <section class="title">
+        <h1>Bushfires in Australia</h1>
+        <p>
+          to be added
+        </p>
+      </section>
+
+      <div class="toc">
+        <b>On this page</b>
+        <ol>
+          <li><a href="#1">NSW — Fire Centroids (2010–2020)</a></li>
+          <li><a href="#2">NSW severity by area (2015–2019)</a></li>
+          <li><a href="#3">Planned (Prescribed) vs Wildfire — 2015–2019</a></li>
+          <li><a href="#4">Monthly wildfires — 2018 to 2019</a></li>
+          <li><a href="#5">Severity by area (2015–2019)</a></li>
+        </ol>
+      </div>
+
+      <!-- Visualization Sections -->
+      <section class="vis-section-1", id="1">
+        <h2>📍 NSW — Fire Centroids (2010–2019)</h2>
+        <div id="nsw_map" class="vis-container"></div>
+        <p class="vis-description">
+          to be added
+        </p>
+      </section>
+      
+
+      <section class="vis-section-2, id="2">
+        <div id="yearly_severity_pie" class="vis-container"></div>
+        <div class="vis-description">
+          <h2>📈 NSW severity by area (2015–2019)</h2>
+
+          <p>
+            to be added
+          </p>
+        </div>
+      </section>
+
+      <section class="vis-section-3", id="3">
+        <div class="vis-description">
+          <h2>🔥 Planned (Prescribed) vs Wildfire — 2015–2019</h2>
+          <p>
+            to be added
+          </p>
+        </div>
+        <div id="planned_vs_wildfire_area" class="vis-container"></div>
+      </section>
+
+      <section class="vis-section-4", id="4">
+        <h2>📈 Monthly wildfires — 2018 to 2019 </h2>
+        <div id="combined_monthly_wildfire_line" class="vis-container"></div>
+        <p class="vis-description">
+          to be added
+        </p>
+      </section>
+
+
+      
+      
+      <section class="vis-section-2", id="5">
+        <div id="nsw_2019_top10_bar" class="vis-container"></div>
+        <div class="vis-description">
+          <h2>🔥 Top 10 NSW fires by area (2019)</h2>
+          <p>
+            to be added
+          </p>
+        </div>
+      </section>
+
+       
+      
+      
+      <footer>
+        <div class="meta_data">
+          <p>
+            <b>Author:</b> Heejae Lim <br /><b>Task:</b> FIT3179 Visualization 2 <br /><b
+              >Data Source:
+            </b>
+            <a href="https://data.nsw.gov.au/data/dataset/nsw-rural-fire-service-current-incidents-feed"
+              >Data NSW 
+            </a>
+            and
+            <a
+              href="https://100-years-of-bushfire-unsw-au.opendata.arcgis.com/"
+              >100 Years of bushfire UNSW</a
+            ><br /><b>Formatted Data (CSV): </b>Available on
+            <a href=""
+              >Github
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript">
+
+      var vg1 = "Visualization/nsw_vegalite_map_with_fires.json";
+      var vg2 = "Visualization/nsw_2019_top10_bar.json";
+      var vg3 = "Visualization/yearly_severity_pie.json";
+      var vg4 = "Visualization/planned_vs_wildfire_area.json";
+      var vg5 = "Visualization/combined_monthly_wildfire_line.json";
+
+      vegaEmbed("#nsw_map", vg1, { actions: false }).catch(console.error);
+      vegaEmbed("#nsw_2019_top10_bar", vg2, { actions: false }).catch(console.error);
+      vegaEmbed("#yearly_severity_pie", vg3, { actions: false }).catch(console.error);
+      vegaEmbed("#planned_vs_wildfire_area", vg4, { actions: false }).catch(console.error);
+      vegaEmbed("#combined_monthly_wildfire_line", vg5, { actions: false }).catch(console.error);
+    </script>
+  </body>
+</html>

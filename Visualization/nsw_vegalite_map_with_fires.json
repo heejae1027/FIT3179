@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 690,
+  "height": 400,
+  "title": "NSW — Fire Centroids (2010–2019)",
+  "params": [
+    {
+      "name": "year_select",
+      "value": 2018,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2019,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "projection": { "type": "mercator", "center": [147.5, -32.5], "scale": 1700 },
+  "layer": [
+    {
+      "data": { "url": "Data Source\\nsw.json" },
+      "mark": { "type": "geoshape", "fill": "#eef3f7", "stroke": "#6b6b6b", "strokeWidth": 0.6 }
+    },
+    {
+      "data": { "url": "Data Source\\NSW_fire_history_centroids_2010_2020.csv", "format": { "type": "csv" } },
+      "transform": [
+        { "calculate": "toNumber(datum.Longitude)", "as": "lon" },
+        { "calculate": "toNumber(datum.Latitude)", "as": "lat" },
+        { "calculate": "toNumber(datum.YearNum)", "as": "YearNum" },
+        { "filter": "isFinite(datum.lon) && isFinite(datum.lat)" },
+        { "filter": "datum.YearNum == year_select" }
+      ],
+      "mark": { "type": "circle", "opacity": 0.85, "stroke": "#222", "strokeWidth": 0.3 },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": { "field": "AreaHa", "type": "quantitative", "scale": { "range": [20, 400] }, "title": "Area (ha)" },
+        "color": { "field": "Type", "type": "nominal", "title": "Type", "scale": { "scheme": "category10" } },
+        "tooltip": [
+          { "field": "FireName", "type": "nominal", "title": "Fire Name" },
+          { "field": "YearNum", "type": "quantitative", "title": "Year" },
+          { "field": "Type", "type": "nominal", "title": "Type" },
+          { "field": "AreaHa", "type": "quantitative", "title": "Area (ha)" },
+          { "field": "StartDate", "type": "temporal", "title": "Start" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": "transparent" },
+    "legend": { "labelFont": "Lato", "titleFont": "Lato" }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 10 NSW fires in 2019 by area (horizontal bar)",
+  "data": { "url": "Data Source\\nsw_2019_top10_fires_with_locations.csv" },
+  "transform": [
+    { "calculate": "datum.AreaHa", "as": "area" },
+    {
+      "window": [{ "op": "rank", "as": "rank" }],
+      "sort": [{ "field": "area", "order": "descending" }]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Name",
+      "type": "nominal",
+      "sort": { "field": "area", "order": "descending" },
+      "title": "Fire name"
+    },
+    "x": {
+      "field": "area",
+      "type": "quantitative",
+      "title": "Area (ha)",
+      "axis": { "format": "," }
+    },
+    "color": { "value": "#d95f02" },
+    "tooltip": [
+      { "field": "Name", "type": "nominal" },
+      { "field": "Type", "type": "nominal" },
+      {
+        "field": "area",
+        "type": "quantitative",
+        "title": "Area (ha)",
+        "format": ","
+      },
+      { "field": "StartDate", "type": "temporal", "title": "Start" },
+      { "field": "EndDate", "type": "temporal", "title": "End" }
+    ]
+  },
+  "width": 320,
+  "height": 400
+}

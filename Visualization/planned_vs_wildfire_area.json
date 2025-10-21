@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked area chart of Planned vs Wildfire percentage by Year",
+  "width": 550,
+  "height": 400,
+  "data": { "url": "Data Source\\nsw_2015_2019_planned_vs_wildfire_combined.csv" },
+  "mark": "area",
+  "encoding": {
+    "x": { "field": "Year", "type": "ordinal", "title": "Year" },
+    "y": {
+      "field": "percentage",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Percentage"
+    },
+    "color": { "field": "Category", "type": "nominal" },
+    "tooltip": [
+      { "field": "Category", "type": "nominal", "title": "Category" },
+      { "field": "incidents", "type": "quantitative", "title": "Incidents" },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".2f"
+      }
+    ]
+  }
+}

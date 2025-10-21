@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Donut chart of area percent by severity bucket with a year slider (nsw_severity_area_2015_2019.csv)",
+  "data": { "url": "Data Source\\nsw_severity_area_2015_2019.csv" },
+  "width": 300,
+  "height": 420,
+  "transform": [{ "filter": "datum.Year == year_select" }],
+  "params": [
+    {
+      "name": "year_select",
+      "value": 2015,
+      "bind": {
+        "input": "range",
+        "min": 2015,
+        "max": 2019,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "mark": { "type": "arc", "innerRadius": 50 },
+  "encoding": {
+    "theta": { "field": "pct_area", "type": "quantitative" },
+    "color": {
+      "field": "AreaBucket",
+      "type": "nominal",
+      "title": "Area bucket",
+      "scale": {
+        "domain": [
+          "Small (<100 ha)",
+          "Medium (100–1k ha)",
+          "Large (1k–10k ha)",
+          "Extreme (>10k ha)"
+        ],
+        "range": ["#a6d96a", "#ffd700", "#ff8c00", "#ff0000"]
+      }
+    },
+    "tooltip": [
+      { "field": "AreaBucket", "type": "nominal", "title": "Area bucket" },
+      { "field": "incidents", "type": "quantitative", "title": "Incidents" },
+      {
+        "field": "pct_area",
+        "type": "quantitative",
+        "title": "% area",
+        "format": ".2f"
+      },
+      {
+        "field": "pct_incidents",
+        "type": "quantitative",
+        "title": "% incidents",
+        "format": ".2f"
+      }
+    ]
+  }
+}
