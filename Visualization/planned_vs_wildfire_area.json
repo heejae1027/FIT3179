@@ -14,7 +14,7 @@
       "stack": "normalize",
       "title": "Percentage"
     },
-    "color": { "field": "Category", "type": "nominal" },
+    "color": { "field": "Category", "type": "nominal",  "legend": { "titleFontSize": 16, "labelFontSize": 14, "symbolSize": 200, "labelLimit": 400 } },
     "tooltip": [
       { "field": "Category", "type": "nominal", "title": "Category" },
       { "field": "incidents", "type": "quantitative", "title": "Incidents" },
