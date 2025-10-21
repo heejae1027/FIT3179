@@ -3,6 +3,7 @@
   "width": 690,
   "height": 400,
   "title": "NSW — Fire Centroids (2010–2019)",
+  "background": "#d0e7cc",
   "params": [
     {
       "name": "year_select",
@@ -35,8 +36,8 @@
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
-        "size": { "field": "AreaHa", "type": "quantitative", "scale": { "range": [20, 400] }, "title": "Area (ha)" },
-        "color": { "field": "Type", "type": "nominal", "title": "Type", "scale": { "scheme": "category10" } },
+        "size": { "field": "AreaHa", "type": "quantitative", "scale": { "range": [20, 400] }, "title": "Area (ha)", "legend": { "titleFontSize": 20, "labelFontSize": 16, "symbolSize": 400 } },
+  "color": { "field": "Type", "type": "nominal", "title": "Type", "scale": { "scheme": "category10" }, "legend": { "titleFontSize": 20, "labelFontSize": 16, "symbolSize": 400 } },
         "tooltip": [
           { "field": "FireName", "type": "nominal", "title": "Fire Name" },
           { "field": "YearNum", "type": "quantitative", "title": "Year" },

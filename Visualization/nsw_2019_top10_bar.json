@@ -10,18 +10,20 @@
     }
   ],
   "mark": "bar",
+  "background": "#d0e7cc",
   "encoding": {
     "y": {
       "field": "Name",
       "type": "nominal",
       "sort": { "field": "area", "order": "descending" },
-      "title": "Fire name"
+      "title": "Fire name",
+      "axis": { "labelFontSize": 14, "titleFontSize": 16 }
     },
     "x": {
       "field": "area",
       "type": "quantitative",
       "title": "Area (ha)",
-      "axis": { "format": "," }
+      "axis": { "format": ",", "labelFontSize": 14, "titleFontSize": 16 }
     },
     "color": { "value": "#d95f02" },
     "tooltip": [

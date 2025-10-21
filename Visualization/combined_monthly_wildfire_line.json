@@ -3,6 +3,7 @@
   "description": "Monthly wildfire incidents for 2018 and 2019 — line chart with Year as color",
   "width": 800,
   "height": 400,
+  "background": "#d0e7cc",
   "data": { "url": "Data Source\\2018_2019_Monthly_Wildfire_Counts__combined_.csv" },
   "transform": [
     {

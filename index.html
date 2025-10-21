@@ -17,16 +17,21 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Bushfires in Australia</title>
+    <title>Bushfires in NSW</title>
   </head>
   <body>
     
     <div class="container">
       <!-- Title -->
       <section class="title">
-        <h1>Bushfires in Australia</h1>
+        <h1>Bushfires in NSW</h1>
         <p>
-          to be added
+          This dashboard explores bushfire activity in New South Wales (NSW) 
+          using open data from 2010–2019, with a focus on the 2019 
+          <b>“Black Summer”</b> season. Use the controls to switch years, filter 
+          by fire type, and compare severity. Each section highlights a 
+          different angle—where fires occurred, how large they were, 
+          and how the mix of planned burns versus wildfires changed over time.
         </p>
       </section>
 
@@ -46,7 +51,11 @@
         <h2>📍 NSW — Fire Centroids (2010–2019)</h2>
         <div id="nsw_map" class="vis-container"></div>
         <p class="vis-description">
-          to be added
+          This map plots each recorded fire as a point located at the 
+          centre of its footprint (centroid). Use the year slider to 
+          step through 2010–2019 and the legend to isolate fire types. 
+          Bubble size reflects burnt area, making large events easy to 
+          spot while keeping the map responsive.
         </p>
       </section>
       
@@ -54,33 +63,53 @@
       <section class="vis-section-2, id="2">
         <div id="yearly_severity_pie" class="vis-container"></div>
         <div class="vis-description">
-          <h2>📈 NSW severity by area (2015–2019)</h2>
-
+          <h2>📈 <b>NSW — Severity by Area (2015–2019)</b></h2>
           <p>
-            to be added
+            <b>What it shows:</b> Fires are grouped by size: Small (<100 ha), 
+            Medium (100–1k ha), Large (1k–10k ha) and Extreme (>10k ha), 
+            and the donut shows each bucket’s share of total burnt area 
+            for the selected year.<br>
+            <b>How to read it:</b> Use the year slider to switch between 2015–2019; 
+            hover to see exact values.<br>
+            <b>Why it matters:</b> Most years are driven by Large fires, but in 2019 
+            the Extreme bucket dominates, revealing how a small number of 
+            mega-fires contributed the vast majority of area burned during Black Summer.
           </p>
         </div>
       </section>
 
       <section class="vis-section-3", id="3">
+        <h2>🔥 Planned (Prescribed) vs Wildfire — 2015–2019</h2>
+
+        <div id="planned_vs_wildfire_area" class="vis-container"></div>
         <div class="vis-description">
-          <h2>🔥 Planned (Prescribed) vs Wildfire — 2015–2019</h2>
           <p>
-            to be added
+            <b>What it shows:</b> The stacked area compares the share of 
+            incidents that were planned/prescribed burns versus wildfires 
+            each year from 2015–2019 (100% total per year).<br>
+            <b>How to read it:</b> Taller orange sections mean a higher 
+            proportion of wildfires in that year; blue shows planned operations.<br>
+            <b>Why it matters:</b> The mix flips over time—2015 is mostly 
+            planned burns, while by 2019 wildfires account for ~95% of 
+            incidents, highlighting the shift from routine hazard-reduction 
+            to a season dominated by uncontrolled fires. (Percentages are 
+            from incident counts, not burnt area.)
           </p>
         </div>
-        <div id="planned_vs_wildfire_area" class="vis-container"></div>
       </section>
 
-      <section class="vis-section-4", id="4">
+      <section class="vis-section-1", id="4">
         <h2>📈 Monthly wildfires — 2018 to 2019 </h2>
         <div id="combined_monthly_wildfire_line" class="vis-container"></div>
         <p class="vis-description">
-          to be added
+          Wildfires follow a strong seasonal rhythm in NSW. Counts sag through 
+          autumn–winter, then build from late winter as fuels cure, peaking in 
+          late spring to mid-summer (Nov–Jan) when heat, low humidity, and frequent 
+          windy changes make new ignitions more likely and harder to control. 
+          The late-2019 surge reflects this pattern, amplified by prolonged dryness 
+          leading into Black Summer.
         </p>
       </section>
-
-
       
       
       <section class="vis-section-2", id="5">
@@ -88,12 +117,15 @@
         <div class="vis-description">
           <h2>🔥 Top 10 NSW fires by area (2019)</h2>
           <p>
-            to be added
+            Reading the ranking: 2019’s damage was driven by a handful of mega-fires 
+            — led by Green Wattle Creek, the single largest event. Ignited by lightning 
+            on 26 Oct 2019, it expanded rapidly under record heat, long drought, 
+            strong winds and very dry fuels, burning far more area than any other 
+            fire that year. The remaining bars (Gospers Mountain, Carrai Creek, 
+            Dunns Road, etc.) show how a few large incidents dominated the season’s total area.
           </p>
         </div>
       </section>
-
-       
       
       
       <footer>
@@ -109,10 +141,11 @@
             <a
               href="https://100-years-of-bushfire-unsw-au.opendata.arcgis.com/"
               >100 Years of bushfire UNSW</a
-            ><br /><b>Formatted Data (CSV): </b>Available on
+            ><br /><b>Formatted Data: </b>Available on
             <a href="https://github.com/heejae1027/FIT3179/tree/31a47c2a7dfb32acc624bfeed33bb3b242fda99c/Data%20Source"
-              >Github
+              >Github<br>
             </a>
+            I used ChatGPT to assist with data cleaning and basic dashboard formatting
           </p>
         </div>
       </footer>
@@ -134,4 +167,3 @@
     </script>
   </body>
 </html>
-

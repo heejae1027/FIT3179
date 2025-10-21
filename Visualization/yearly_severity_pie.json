@@ -4,6 +4,7 @@
   "data": { "url": "Data Source\\nsw_severity_area_2015_2019.csv" },
   "width": 300,
   "height": 420,
+  "background": "#aecaaa",
   "transform": [{ "filter": "datum.Year == year_select" }],
   "params": [
     {
@@ -33,7 +34,8 @@
           "Extreme (>10k ha)"
         ],
         "range": ["#a6d96a", "#ffd700", "#ff8c00", "#ff0000"]
-      }
+      },
+      "legend": { "titleFontSize": 20, "labelFontSize": 16, "symbolSize": 400 }
     },
     "tooltip": [
       { "field": "AreaBucket", "type": "nominal", "title": "Area bucket" },

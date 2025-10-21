@@ -5,6 +5,7 @@
   "height": 400,
   "data": { "url": "Data Source\\nsw_2015_2019_planned_vs_wildfire_combined.csv" },
   "mark": "area",
+  "background": "#d0e7cc",
   "encoding": {
     "x": { "field": "Year", "type": "ordinal", "title": "Year" },
     "y": {
